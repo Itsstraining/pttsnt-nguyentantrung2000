@@ -1,66 +1,39 @@
-// Add new functions, variables here
-
-function main(a) {
-  snt(a);
-}
-
-function snt(a)
-{
-for(let i=2;i<=a;i++)
-{
-  let count=0;
-  while(a%i==0)
+function main(input) {
+  let n = input;
+  if( n == 1 || n==0)
   {
-    ++count;
-    a/=i;
+    console.log(n);
+    return 1;
   }
-
-  if(count)
+  if(check(n) == false)
   {
-    console.log(i)
-    if(count>1)
+    console.log(n);
+    return 1;
+  }
+  for(i=2;i<=n;i++)
+  {
+    if(n%i==0)
     {
-    console.log("^",a)
-    }
-    // else 
-    // {
-    // console.log(i);
-    // }
-    if(a>i)
-    {
-      console.log("*");
+      if(check(i)==true)
+      {
+        console.log(i);
+        n/=i;
+        i=1;
+      }
     }
   }
+  return 0;
 }
+
+function check(n){
+  let count = 0;
+  for(let j = 2; j<=Math.sqrt(n);j++)
+  {
+    if(n%j==0)
+    {
+      count++;
+    }
+  }
+  return true;
 }
-
-// function snt(a) {
-//   let count = 0;
-//   // for(let m=1;m<=a;m++)
-//   // {
-//     let i;
-//     for (i = 2; i < a; i++) 
-//     {
-//       if (a % i == 0)
-//       {
-//         for (let j = 2; j <= Math.sqrt(i); j++)
-//         {
-//           if (i % j == 0)
-//           {
-//             count++;
-//           }
-//         }
-//         if (count == 0)
-//         {
-//           console.log(i)
-//           a=a/i;
-//           console.log(a)
-//         }
-//       }
-//     }
-    
-//   // }
-
-// }
-
 module.exports = main;
