@@ -1,5 +1,6 @@
 function main(input) {
   let n = input;
+  let arr = [];
   if( n == 1 || n==0)
   {
     console.log(n);
@@ -16,13 +17,13 @@ function main(input) {
     {
       if(check(i)==true)
       {
-        console.log(i);
+        arr.push(i);
         n/=i;
         i=1;
       }
     }
   }
-  return 0;
+  console.log(arr.join(' '))
 }
 
 function check(n){
